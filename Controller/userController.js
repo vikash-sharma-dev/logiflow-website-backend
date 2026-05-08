@@ -3,15 +3,15 @@ const { sendUserEmail } = require("../services/mailService");
 module.exports = {
   sendDetails: async (req, res) => {
     try {
-      const { name, phone,email } = req.body;
-        console.log(name, phone);
-      if (!name || !phone) {
+      const { name, phone,email, company, shipmentType, message } = req.body;
+        console.log(name, phone, email, company, shipmentType, message);
+      if (!name || !phone || !email) {
         return res.status(400).json({
-          message: "Name and phone are required",
+          message: "Name, phone, and email are required",
         });
       }
 
-      await sendUserEmail(name, phone,email);
+      await sendUserEmail(name, phone,email, company, shipmentType, message);
 
       res.status(200).json({
         message: "Email sent successfully",

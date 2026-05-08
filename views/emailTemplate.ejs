@@ -210,9 +210,27 @@
 
               <div class="value"><%= phone %></div>
             </div>
-          </div>
-        </div>
+        <!-- Company (Optional) --> 
+          <% if(company && company.trim() !== "") { %> 
+            <div class="info-card">
+               <div class="label"> Company </div> 
+            <div class="value"> <%= company %> </div> 
+          </div> <% } %>
 
+         <!-- Shipment Type (Optional) --> 
+          <% if(shipmentType && shipmentType.trim() !== "") { %> 
+            <div class="info-card"> 
+              <div class="label"> Shipment Type </div>
+             <div class="value"> <%= shipmentType %> </div> 
+            </div> <% } %> 
+
+             <!-- Message (Optional) -->
+               <% if(message && message.trim() !== "") { %> 
+                <div class="info-card">
+                   <div class="label"> Message </div>
+                 <div class="value"> <%= message %> </div> 
+                </div> <% } %>
+            
         <!-- Footer -->
 
         <div class="footer">

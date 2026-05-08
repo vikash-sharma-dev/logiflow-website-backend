@@ -5,7 +5,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 module.exports = {
-  sendUserEmail: async (name, phone, email) => {
+  sendUserEmail: async (name, phone, email, company, shipmentType, message) => {
     try {
       // path to EJS template
       const templatePath = path.resolve("views/emailTemplate.ejs");
@@ -15,6 +15,9 @@ module.exports = {
         name,
         email,
         phone,
+        company,
+        shipmentType,
+        message
       });
 
       const mailOptions = {
